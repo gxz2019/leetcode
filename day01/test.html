@@ -1,0 +1,49 @@
+<script>
+  /**
+    409题  最长回文串
+    
+    题目:  给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+    在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
+  
+    示例:  输入"abccccdd"   输出:7   
+    
+    解析： 1.所得到的字符串只能由一个字母的数量为单数,其余的字母的数量都得为偶数
+  
+  */
+  //第一种题解
+  // var longestPalindrome = function (s) {
+  //   let obj = {}, num = 0;
+  //   for (let i = 0; i < s.length; i++) {
+  //     if (obj[s[i]]) {
+  //       obj[s[i]] = obj[s[i]] + 1;
+  //     } else {
+  //       obj[s[i]] = 1
+  //     }
+  //   }
+  //   for (let key in obj) {
+  //     if (obj[key] > 1 && obj[key] % 2 == 0) {
+  //       num = num + obj[key]
+  //     } else {
+  //       num = num + obj[key] - 1
+  //     }
+  //   }
+  //   return num < s.length ? num + 1 : num
+  // };
+  // console.log(longestPalindrome("ccc"))
+
+  //第二种题解
+  // var longestPalindrome = function (s) {
+  //   let set = new Set();
+  //   let num = 0;
+  //   for(let i = 0;i < s.length;i++) {
+  //     if(!set.has(s[i])){
+  //       set.add(s[i])
+  //     }else{
+  //       num+=2
+  //       set.delete(s[i])
+  //     }
+  //   }
+  //   return num < s.length ? num+1:num
+  // }
+
+</script>
