@@ -18,17 +18,20 @@
      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
  */
 var lengthOfLongestSubstring = function(s) {
-  let arr=[], str='',i=0;
-  for(let i = 0;i < s.length;i ++){
-    for(let j = i+1;j < s.length;j ++) {
-      if(str.indexOf(s[i]) == -1) {
-        str+=s[j]
-      }else{
-        
+  let  str='',maxLength = 0;
+  for(let i = 0;i < s.length;i ++) {
+    if(str.indexOf(s[i]) == -1) {
+      str += s[i]
+      if(str.length > maxLength) {
+        maxLength = str.length
       }
+    }else{
+      str += s[i]
+      let index = str.indexOf(s[i])
+      str = str.slice(index+1)
     }
   }
-  return arr
+  return maxLength
 };
-console.log(lengthOfLongestSubstring("dvdf"))
+console.log(lengthOfLongestSubstring("ab"))
 </script>
