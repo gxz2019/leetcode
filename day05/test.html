@@ -15,8 +15,8 @@
 清空任意一个水壶
 从一个水壶向另外一个水壶倒水，直到装满或者倒空
 示例 1: (From the famous "Die Hard" example)
-
-输入: x = 3, y = 5, z = 4
+ 
+输入: x = 3, y = 5, z = 4                     0 0 | 0 y | x y-x |0,y-x|y-x,0|y-x,y|x,y-1|                  
 输出: True
 示例 2:
     while(y) [x, y] = [y, x % y];   [3,5] = [5,3]=[3,2]=[2,1]=[1,0]
@@ -24,12 +24,17 @@
 输入: x = 2, y = 6, z = 5           [2,6] = [6,2] = [2,0]     
 输出: False                          [6,2] = [2,0]
  */
-var canMeasureWater = function(x, y, z) {
+ var canMeasureWater = function(x, y, z) {
    if(x + y < z) {
     return false
    }
-   
+   while(y !== 0){
+    [x,y] = [y,x%y]
+   }
+  return !(z%x)
    
 };
+
+canMeasureWater(2,6,5)
 
 </script>

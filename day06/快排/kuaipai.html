@@ -1,0 +1,65 @@
+<script>
+  //冒泡排序
+  // var sort = function(nums) {
+  //   for(let i = 0;i < nums.length;i ++) {
+  //     for(let j = i+1;j < nums.length;j ++) {
+  //       if(nums[i] > nums[j]){
+  //         [nums[i],nums[j]] = [nums[j],nums[i]]
+  //       }
+  //     }
+  //   }
+  //   return nums
+  // }
+  // sort([23,46,0,8,11,18])
+
+
+  
+    //快速排序 
+    // [18,11,0,8,23,46]
+  // var quickSort = function (nums) {
+  //   if(nums.length <= 1) {
+  //     return nums
+  //   }
+  //   let temp = nums.splice(0,1)[0]
+  //   let left = [],right = []
+  //   for(let i = 0;i < nums.length;i ++) {
+  //     if(nums[i] > temp) {
+  //       right.push(nums[i])
+  //     }else{
+  //       left.push(nums[i])
+  //     }
+  //   }
+  //   return quickSort(left).concat(temp,quickSort(right))
+  // }
+  // console.log(quickSort([23,46,0,8,11,18]))
+
+  //                             23              23
+  // [23,46,0,8,11,18]    [18,46,0,8,11,18] [18,46,0,8,11,46] [18,11,0,8, 23,46] 
+  var quickSort = function(nums) {
+    if(nums.length <= 1) {
+      return nums
+    }
+    let l = 0,r = nums.length - 1;//==5
+    let temp = nums[0]  //temp = 23
+    while(l < r) {  
+      while(l < r && temp<=nums[r]) {   //l=1 r = 4
+        r--
+      }
+      if(temp > nums[r] ) {
+        nums[l] = nums[r]  // [18,11,0,8,23,46]  l=1  r=4
+      }
+      while(l < r && temp>=nums[l]) {  //l = 1  r = 5
+        l++
+      }
+      if(temp < nums[l]) {  // [18,46,0,8,11,46]  
+        nums[r] = nums[l]
+      }
+    }
+    if(l == r) {
+      nums[l] = temp
+    }
+    // return nums
+    return quickSort(nums.slice(0,l)).concat([temp]).concat(quickSort(nums.slice(l+1)))
+  }
+  console.log(quickSort([23,46,0,8,11,18]))
+</script>

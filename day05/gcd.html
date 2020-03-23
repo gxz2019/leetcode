@@ -1,0 +1,13 @@
+<script>
+  //gcd算法   求两个数的最大公约数  辗转相除法
+  //[3,5] = [5,3] = [3,2] = [2,1] = [1,0]
+  function gcd(a,b) {
+    while(b !== 0) {
+      [a,b] = [b,a%b]
+    }
+    return a
+  }
+  gcd(3,5)
+  
+
+</script>
