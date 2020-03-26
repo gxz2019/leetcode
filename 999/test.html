@@ -1,0 +1,45 @@
+<script>
+  /**
+ * @param {character[][]} board
+ * @return {number}
+ */
+ var numRookCaptures = function(board) {
+    let num = 0
+    for(var i = 0; i < 8; i++){
+        if(!board[i].includes('R')) continue
+        let j = board[i].indexOf('R')
+        for(let m = i-1; m > 0; m--){
+            if(board[m][j] === 'B') break
+            if(board[m][j] === 'p') {
+                num++
+                break
+            }
+        }
+        for(let n = i+1; n <8; n++){
+            if(board[n][j] === 'B') break
+
+            if(board[n][j] === 'p') {
+                num++
+                break
+            }
+        }
+        for(let k = j-1; k >0; k--){
+            if(board[i][k] === 'B') break
+
+            if(board[i][k] === 'p') {
+                num++
+                break
+            }
+        }
+        for(let p = j+1; p < 8; p++){
+            if(board[i][p] === 'B') break
+
+            if(board[i][p] === 'p') {
+                num++
+                break
+            }
+        }
+    }
+    return num
+}
+</script>
