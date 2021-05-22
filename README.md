@@ -1,3 +1,3 @@
-# leetcode 算法学习
+# math code
 
   
